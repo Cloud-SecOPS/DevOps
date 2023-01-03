@@ -1,0 +1,386 @@
+******************************
+git installation steps:
+**********************************
+
+yum install vim wget -y
+echo "ok"
+yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel -y
+echo "ok"
+yum install gcc perl-ExtUtils-MakeMaker -y
+echo "ok"
+cd /opt
+echo "ok"
+wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.0.tar.gz
+echo "ok"
+tar -xvf git-2.38.0.tar.gz
+echo "ok"
+cd git-2.38.0
+echo "ok"
+make prefix=/usr/local/git all 
+echo "ok"
+make prefix=/usr/local/git install
+echo "ok"
+yum remove git -y
+echo "ok"
+hash -r
+echo "ok"
+export PATH=$PATH:/usr/local/git/bin 
+echo "ok"
+git --version
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+keygeneration and sharing to git repositoy fof password less authentication
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ssh-keygen
+cd /root/.ssh 
+cat id_rsa.pub
+copy the key from id_rsa.pub file  and move to github repositoy settings 
+find deploy keys and click on that 
+click on the add key
+name the key name 
+paste the copied key in text box
+select the allow write acces
+save the key name
+move to repositoy and click on the repositoy name and click on that
+
+click on code button  then click on ssh then  copy the url of the repositoy
+then move to local git practice folder and one the gitbash 
+then apply the fallowing step
+ git clone url of the git repositoy
+move to cloned git repositoy
+    cd cloned repositoy
+
+####################################################
+
+"Linux Commands:"
+to check prsent workig directory  
+
+  command:   pwd
+
+to list all files and directories :
+
+   command: ls  
+
+to list all files and directories in long list format :
+
+   command: ll
+
+
+to list all normal files and directories along with hidden files and directories :
+
+   command: ls  -a
+
+to list all  normal files and directories in long list format along with hidden files and directories : 
+
+   command: ll -a
+
+
+to know the host name/ server name :
+
+   hostname  
+to know the os-name :
+   command: cat /etc/os-release
+   command: cat /etc/redat-release     <-- note this one for only redhat family versions
+       (redhat, centos, rocky linux)
+   command: hostnamectl  
+
+to create a file: 
+    
+    syntax:
+
+      touch file-name    <-- to create empty file 
+
+    command: 
+       example:
+          touch java 
+
+    command:  touch file-name file-name file-name  <-- to create one or more files at a time. 
+
+     note: we can't insert the data/content in the file while creating a file by using touch command: 
+
+
+      syntax: for file creaton along with content 
+         cat > file-name
+         - - - - - - - - - - -
+         - - - -- - - - - - --
+         - - -- - - - - -- - -
+      then press ctrl+d for save and exit 
+      
+example: 
+
+      command:  cat >file-name
+      hi we are from cloud gen softech systems pvt. ltd
+      we are offering the below courses.
+      Linux
+      DevOps
+      AWS 
+      Azure
+      GCP
+      Python
+      Python with Fullstack
+      Oracle
+      ....
+       so on.. 
+
+  ctrl+d 
+
+to see the content in a file: 
+
+   syntax:  cat file-name 
+
+         example:
+
+         command:  cat devops 
+
+to create hidden files: 
+   syntax 1:
+    touch .file-name
+
+   syntax 2:
+    touch .file-name .file-name .file-name
+
+example: 
+
+command:      touch .ruby .php .mysql .html 
+ 
+content Appending:
+   if we want to add some more data/content in an exsisting file fallow the below command
+syntax: 
+cat>> file-name
+
+command:  cat>>Python
+    - - - - - -- - - -
+    - - - - - - - - - -
+   - - - - - - - - --
+   ctrl+d <-- to save and exit 
+
+******************************************************
+git commands:
+
+   git --version
+   git clone url of the repositoy
+   git status   <-- it used for to check the status of cloned repositoy working tree
+   working tree= working directory + staging area
+   working directory files in red color
+   staging area files in green color 
+   'git add file-name '  <-- to add the file /send to staging the one file at a time. 
+   'git add file-name file-name'  <-- this one used for to add one or more files at a time.
+   'note:' git add commnd used for to staging file/files 
+   'git add .' <-- this one used for to add/stage the all files at a time. 
+   'git add *' <-- this one used for to add/stage the all files at a time except hidden files. 
+   'git add --all' <-- this one used for to add/stage the all files at a time. 
+   'git add -A ' <-- this one used for to add/stage the all files at a time. 
+   'git stage file-name '  <-- to add the file /send to staging the one file at a time. 
+   'git stage file-name file-name'  <-- this one used for to add one or more files at a time. 
+   
+   note: 'git add' commnd used for to staging file/files 
+   
+   'git stage file-name file-name file-name'  <-- this one used for to add staging the multiple files at a time 
+   'git stage .' <-- this one used for to add/stage the all files at a time. 
+   'git stage *' <-- this one used for to add/stage the all files at a time except hidden files. 
+   'git stage --all' <-- this one used for to add/stage the all files at a time. 
+   'git stage -A ' <-- this one used for to add/stage the all files at a time. 
+
+   reset command:  <-- this one used for to unstge the file/files 
+
+   'git reset file-name'  <-- this one used for to unstge only one file at a time 
+   'git reset file-name file-name'  <-- this one used for unsge one or more files at a time
+   'git reset'  <-- this one used for to unstge all files at a time
+   'git reset .' <-- this one used for to unstge all files at a time
+   'git reset *' <-- this one used for to unstge all files at a time execpt hidden files 
+  
+   
+to commit the files : 
+   its mean to send files form staging area to committing 
+   
+   syntax:
+   "git commit -m 'any one message' file-name
+   
+   example:
+      "git commit -m "commit V1.0" java 
+   syntax:
+      "git commit -m 'any one message'" file-name file-name
+
+example:
+   "git commit -m commit V1.0" devops .ruby   <-- committing DevOps and .ruby files 
+
+      syntax:
+   "git commit -m 'any one message'"     <-- to commit all files at a time 
+
+example:
+
+   syntax:
+   "git commit -m 'any one message'" pattren files
+
+example:
+
+      "git commit -m test message" r* b* s*
+
+touch Java java1 Ravi ravi1 Python python1
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Linux: 
+
+   file deletion:
+      note: 
+         rm file-name    <-- when we are applying this command to delete the file.. here we will get prompt for (Y/N)
+         if we want to delete the file need to accept Y  if you don't want to delete the file apply N then press enter key 
+
+File Deletion:
+1. Rm  Command:
+     ~:  a. rm filename
+    syntax: 
+       rm file-name
+ example:
+   rm read 
+
+press y for deletion: <--
+
+
+b. rm –f file-name   : this one used for to delete the file without prompt (forecfully)
+   syntax:
+      "rm -f" file-name
+   
+   example:
+
+2. Git rm:
+   "Git rm" file-name 
+
+**********************
+
+git show :   this one used for to  see the latest commit along with content and its changes. 
+
+***********************************
+uncommit the files: 
+
+   example:
+      
+   "git reset --soft HEAD~" :     <-- this one used for to uncommit the latest committed files from committing to staging area.
+   
+   "git reset @~"   : this one used for to uncommit and unstge the all files at a time .  
+
+"git reset --soft HEAD"       (going back to HEAD)
+"git reset --soft HEAD^"      (going back to the commit before HEAD)
+"git reset --soft HEAD~1"     (equivalent to "^")
+"git reset --soft HEAD~2"     (going back two commits before HEAD)
+
+***************  git logs ************************
+
+"git log" : this one used for to list all committed id's    
+
+"git log file-name" : this one used for to only one file all committis 
+
+*********************************************************
+
+"git status" 
+  answer is: nothing to  commit working tree is clean
+
+syntax for file creation:
+
+touch file-name 
+   example:
+      topuch java
+
+git status -s :
+
+git amend: 
+   git commit --amend --no-edit : <-- this one used for to commit file/files on previoius commit message.
+
+git add -u : this one used for to add the files which are modified and deleted in working directory
+git commit -am   : this one used for to commit files which are located in working directory as a modified and deleted along with all staged files. 
+git clean :  this one used for to delete only untracked files and directories
+
+     for only files deletion 
+       
+       git clean -f  :
+   for directories deletion
+      git clean -df :
+
+git rm -f <staged filename>
+git rm --cache <staged filename> : <- this one used for to unstge file
+git rm file-name : for deletion of commited files. 
+
+git diff 
+
+1. git branch
+2. git branch <branch name>
+3. git branch -m <old branch name>   <new branch name>
+4. git branch -M <old branch name> <existed branch or new branch-name>
+5. git branch -d <branch name>
+6. git branch origin -d -r <branch name>
+7. git checkout <branch-name>
+8. git checkout -b <new branch-name>
+9. git branch -v
+10. git branch -r 
+11. git branch --merged
+12. git branch -a --color
+13. git branch -a --no-color
+14. git branch -a --color=never 
+15. git branch-v --abbrev=2 
+16. git brach -v --no-abbrev
+17. git branch -v --contains <branch name>
+
+
+git pull 
+git fetch 
+git rebase 
+git merge 
+git tag 
+git push origin Tag-Version
+
+
+
+
+
+@ in all Machines(Swam Controller and Nodes Machines)
+
+systemctl status docker
+firewall-cmd --permanent --add-port=2376/tcp
+firewall-cmd --permanent --add-port=2377/tcp
+firewall-cmd --permanent --add-port=7946/tcp
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=7946/udp
+firewall-cmd --permanent --add-port=4789/udp
+firewall-cmd --reload
+
+@in Docker Swarm Controller only
+
+docker swarm init --advertise-addr <your Docker Swam Manager/Controller ip Address
+
+
+@ in Docker Noes Machines Only:
+
+Note: below one is the example only.. you have collect from your docker controller machine after apply the bellow command
+
+docker swarm init --advertise-addr <your Docker Swam Manager/Controller ip Address
+
+after apply above command you will get one token like below one.. just copy the entire key and go to node machines just paste there
+
+
+docker swarm join --token SWMTKN-1-1vu4zc3cid37y6pubdjqhaseknzkul6kxrz2dpyugqua6wqcsa-1wr2rparkcu3hf629fuayofh3 192.168.10.167:2377
+
+
+@ in Master machine only
+
+docker node ls
+
+
+
+
+
+
+
+
+Hi Team Good Morning
+
+Please find login access cred:
+   IAM Login USer ID 981785814097
+   User Name: Ravindra
+   Passwd: 
+
+
+      note: Please change your password in next login.
+      

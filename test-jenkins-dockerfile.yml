@@ -1,0 +1,15 @@
+FROM centos:latest
+MAINTAINER  Ravindra support@cloudgen.in
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
+RUN yum install -y wget
+RUN yum install -y vim
+RUN yum install -y git
+RUN yum install java -y
+WORKDIR /opt
+RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
+RUN tar -xvzf apache-tomcat-9.0.65.tar.gz
+RUN mv apache-tomcat-9.0.65 Tomcat 
+COPY ./jenkins.war /opt/Tomcat/webapps
+EXPOSE 8080
+CMD["/opt/Tomcat/bin/startup.sh", "run"]

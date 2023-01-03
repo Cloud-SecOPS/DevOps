@@ -1,0 +1,54 @@
+hostnamectl : to know the operating system name and version
+hostname: to know the server name 
+pwd : to the present working directory
+ls : to list the files and directories
+ll : to list in long list format files and directories
+clear: to clear the screen
+ctrl + L : to get clear screen
+ip a : to know present server ip address
+hostnamectl set-hostname <name of the server> : to set the server name for present server/machine.
+
+12/11/2022 
+
+who am i:   to know the present user name along with number of terminals and system up time.
+whoami : to know the user name 
+users: to know the list of users
+who : logedin users name and terminals
+uptime: to know the system powered on time.  
+date: to know the system present date and time.
+cal: to know the present month and date
+cal year<number> : to see the name of ther year calender
+
+
+run levels:
+  init 0  : <--  to shutdown the or halt the system.
+  init 1 : <-- to enter into single user or run level 1.
+  init 2: <-- multi user with out network. 
+  init 3: <-- multi user with network and CLI
+  init 4: <-- un used ( for R &D purpose)
+  init 5: <-- multi user with network in GUI
+  init 6 : <-- it used for to reboot the server  
+
+
+
+  for regular use:
+    runlevel 0
+    runlevel 3
+    runlevel 6
+
+
+15/11
+
+cat /etc/passwd   <-- to know all users list with name of the user
+
+
+
+
+
+
+
+
+
+
+
+

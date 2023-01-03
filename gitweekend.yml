@@ -1,0 +1,69 @@
+git --version
+git clone URL of the Git-Repository
+cd directory name
+pwd
+ls
+ll 
+git status
+
+touch <-- it used for to create a file or files
+  touch aws
+  touch azure php
+  touch java oracle .net asp devops
+  
+  git add file-name  <-- it used for to add the file/files from working directory to staging area
+
+  example:
+    git add aws 
+
+    
+    Syntax 2:
+
+      git add file-name file-name
+ example: 2
+     git add java oracle
+
+     Syntax 3: to add all files at a time
+
+     example:
+         git add .
+         git add *   <--here can't add the hidden files by this command
+         git add --all  
+         git add -A 
+
+    example:
+    touch  cloudgen{1..10}
+    git add r* c* j* t*
+
+
+
+192.168.10.169  nexusserver.com nexusserver
+192.168.10.166  jenkinsserver.com jenkinsserver
+
+192.168.10.146  jenkinsserver.com jenkinsserver
+192.168.10.128  nexusserver.com nexusserver
+  
+
+
+
+
+
+
+
+
+  commit:
+
+     git commit -m "any one message" file-name <-- to commit only 1 file at a time
+
+     Syntax:
+      git commit -m "any one message" file-name file-name ... nth file 
+  example:
+     git commit -m "committing asp jsp azure V1.0"  asp jsp azure
+
+
+pushing the files from local to remote Git-Repository:
+
+  git push origin branch name : it used to send the files from local committing area to remote
+
+  example:
+    git push origin main : <-- here main is the branch name.

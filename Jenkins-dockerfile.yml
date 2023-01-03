@@ -1,0 +1,12 @@
+FROM centos:latest
+MAINTAINER CloudGen
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
+RUN yum install java -y
+WORKDIR /opt
+RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+RUN tar -xvzf apache-tomcat-9.0.64.tar.gz
+COPY ./Cloud-DevOps-1.war /opt/apache-tomcat-9.0.64/webapps/
+WORKDIR /opt/apache-tomcat-9.0.64/webapps
+EXPOSE 8080
+CMD ["/opt/apache-tomcat-9.0.64/bin/startup.sh", "run"]
